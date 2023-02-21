@@ -16,6 +16,8 @@ export const Searchbar = ({ onSubmit }) => {
       Notiflix.Notify.failure('Please, enter your query.');
       return;
     }
+
+    // console.log(e.currentTarget.elements.query.value.trim());
     onSubmit(e.currentTarget.elements.query.value.trim());
     e.target.reset();
   };

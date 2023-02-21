@@ -5,6 +5,7 @@ import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
 
 export function ImageGallery({ images }) {
   return (
+    // console.log(images, 'it is in gallery'),
     <ImageGalleryStyles>
       {images.map(img => {
         return <ImageGalleryItem key={img.id} image={img} />;
