@@ -25,7 +25,6 @@ export function App() {
     const fetchImagesData = async () => {
       try {
         const resp = await fetchImages(query, page);
-        console.log(resp);
         setImages(prevImages => [...prevImages, ...resp.hits]);
         setTotalImgs(resp.totalHits);
       } catch (error) {
@@ -51,20 +50,17 @@ export function App() {
   const totalPage = images.length / totalImgs;
 
   return (
-    console.log(images, 'this console is in render'),
-    (
-      <Container>
-        <Searchbar onSubmit={handleSubmit} />
-        <ImageGallery images={images} />
-        {isLoading && <Loader />}
+    <Container>
+      <Searchbar onSubmit={handleSubmit} />
+      <ImageGallery images={images} />
+      {isLoading && <Loader />}
 
-        {totalPage < 1 && !isLoading && <Button onClick={handleLoadMore} />}
+      {totalPage < 1 && !isLoading && <Button onClick={handleLoadMore} />}
 
-        {error &&
-          Notiflix.Notify.failure(
-            'Sorry, there are no images matching your search query. Please try again.'
-          )}
-      </Container>
-    )
+      {error &&
+        Notiflix.Notify.failure(
+          'Sorry, there are no images matching your search query. Please try again.'
+        )}
+    </Container>
   );
 }
