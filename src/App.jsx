@@ -43,7 +43,6 @@ export function App() {
   };
 
   const handleSubmit = query => {
-    // console.log(query);
     setQuery(query);
     setPage(1);
     setImages([]);
